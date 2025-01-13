@@ -1,0 +1,17 @@
+task: mululu-letters-jp-full-width
+dataset_path: json
+dataset_name: null
+dataset_kwargs:
+  data_files: 
+      test: /workspace/datasets/mmlu-test.json
+output_type: multiple_choice
+test_split: test
+doc_to_text: "Choose the correct answer to the following multiple choice question.\n\n{{question.strip()}}\nＡ. {{choices[0]}}\nＢ. {{choices[1]}}\nＣ. {{choices[2]}}\nＤ. {{choices[3]}}\nAnswer:"
+doc_to_choice: ["Ａ", "Ｂ", "Ｃ", "Ｄ"]
+doc_to_target: answer
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
